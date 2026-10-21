@@ -77,6 +77,17 @@ h2{font-size:clamp(26px,4.5vw,40px);margin-bottom:12px}
 .faq summary{font-weight:700;color:#fff;cursor:pointer;font-size:15.5px}
 .faq details p{color:var(--mut);font-size:14.5px;margin-top:8px}
 .faq h3{color:#fff;margin:30px 0 4px;font-size:20px}
+.plogo{width:80%;display:block;margin:12px auto 2px}
+.ptext{color:#fff;text-align:center;font-size:16.5px;line-height:1.45;padding:10px 12px 16px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:20px 14px;max-width:840px;margin:36px auto 0}
+.tile{text-decoration:none;text-align:center;display:block}
+.tile img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:26px;display:block;box-shadow:0 16px 34px rgba(0,0,0,.5);border:1px solid var(--line)}
+.tile .roiic{display:grid;place-items:center;aspect-ratio:1;background:linear-gradient(145deg,#155eef,#7048e8);border-radius:26px;font-size:64px;font-weight:800;color:#fff;box-shadow:0 16px 34px rgba(0,0,0,.5);border:1px solid var(--line)}
+.tile .lbl{display:block;margin-top:10px;font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#c7d7f2}
+.apphead{display:flex;align-items:center;gap:16px}
+.apphead img{width:58px;height:58px;border-radius:14px;object-fit:cover;border:1px solid var(--line);flex:none}
+.apphead .roiic{width:58px;height:58px;border-radius:14px;background:linear-gradient(145deg,#155eef,#7048e8);display:grid;place-items:center;font-size:26px;font-weight:800;color:#fff;border:1px solid var(--line);flex:none}
+.apphead h2{margin-bottom:0}
 .closing{background:linear-gradient(180deg,var(--navy2),var(--navy));text-align:center}
 .closing .slogan{color:var(--turq-l);font-weight:700;font-size:clamp(17px,3vw,21px);margin-top:8px}
 footer{background:#081426;color:#8fa8cc;font-size:12.5px;text-align:center;padding:26px 20px 40px;border-top:1px solid var(--line)}
@@ -96,18 +107,14 @@ footer .disc{max-width:760px;margin:0 auto 12px}
     <p class="micro">Te atiendo yo mismo por WhatsApp. Primero vemos qué necesitas y luego la herramienta correcta.</p>
     <div class="phone">
       <div class="notch"></div>
-      <div class="pcard">
-        <h4>LC MARKET SCANNER <span>· monitoreo</span></h4>
-        <div class="prow"><span>AAPL</span><span>🟢 Favorable</span></div>
-        <div class="prow"><span>MSFT</span><span>🔵 Interesante</span></div>
-        <div class="prow"><span>NVDA</span><span>🟡 A considerar</span></div>
-        <div class="prow"><span>TSLA</span><span>🔴 No favorable</span></div>
-      </div>
-      <div class="pcard">
-        <h4>MYREALROI <span>· tu resultado real</span></h4>
-        <div class="roi"><span>Lo que muestra tu broker</span><b class="fake">+21.3%</b></div>
-        <div class="roi"><span>Tu rendimiento REAL</span><b class="real">+8.4%</b></div>
-      </div>
+      <img class="plogo" src="img/epicentro.png" alt="Epicentro Financiero by Lenin Cuenca">
+      <p class="ptext">¿Quieres invertir con un sistema?<br>Pásame tu lista de acciones y tu capital.</p>
+    </div>
+    <div class="tiles">
+      <a class="tile" href="#app-builder"><img src="img/builder.jpg" alt="Portafolios Builder"><span class="lbl">Portafolios Builder</span></a>
+      <a class="tile" href="#app-scanner"><img src="img/scanner.jpg" alt="LC Market Scanner"><span class="lbl">LC Market Scanner</span></a>
+      <a class="tile" href="#app-planner"><img src="img/planner.jpg" alt="Capital Planner Starter"><span class="lbl">Capital Planner Starter</span></a>
+      <a class="tile" href="#app-roi"><span class="roiic">%</span><span class="lbl">myRealRoi</span></a>
     </div>
   </div>
 </header>
@@ -162,9 +169,9 @@ footer .disc{max-width:760px;margin:0 auto 12px}
     <p class="label">Las herramientas</p>
     <h2>Una para cada decisión</h2>
 
-    <div class="app">
+    <div class="app" id="app-builder">
       <p class="label">Paso 1 · En qué invertir</p>
-      <h2>Portafolios Builder</h2>
+      <div class="apphead"><img src="img/builder.jpg" alt="Logo Portafolios Builder"><h2>Portafolios Builder</h2></div>
       <p class="sub">Crea tu perfil de inversionista y arma un posible portafolio con su distribución, según tu meta.</p>
       <ul>
         <li>Perfil según tu meta y tu tolerancia al riesgo</li>
@@ -174,9 +181,9 @@ footer .disc{max-width:760px;margin:0 auto 12px}
       <div class="trybox"><h4>¿No sabes por dónde empezar?</h4><p>Escríbeme y creamos tu perfil juntos.</p><a class="wcta" href="https://wa.me/"><svg viewBox="0 0 24 24" width="21" height="21" fill="#fff" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> Escribe ya</a></div>
     </div>
 
-    <div class="app">
+    <div class="app" id="app-scanner">
       <p class="label">Paso 2 · Cuándo invertir</p>
-      <h2>LC Market Scanner</h2>
+      <div class="apphead"><img src="img/scanner.jpg" alt="Logo LC Market Scanner"><h2>LC Market Scanner</h2></div>
       <p class="sub">Monitorea tus acciones y ETFs con medias móviles 20, 50, 100 y 200 más RSI, y te muestra el momento en un color.</p>
       <ul>
         <li>🟢 Favorable: excelente momento para asignar capital</li>
@@ -187,9 +194,9 @@ footer .disc{max-width:760px;margin:0 auto 12px}
       <div class="trybox"><h4>Mira tu lista con otros ojos</h4><p>Pásame tus tickers y te muestro cómo se ve tu lista monitoreada.</p><a class="wcta" href="https://wa.me/"><svg viewBox="0 0 24 24" width="21" height="21" fill="#fff" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> Escribe ya</a></div>
     </div>
 
-    <div class="app">
+    <div class="app" id="app-planner">
       <p class="label">Paso 3 · Cuánto invertir</p>
-      <h2>Capital Planner Starter</h2>
+      <div class="apphead"><img src="img/planner.jpg" alt="Logo Capital Planner"><h2>Capital Planner Starter</h2></div>
       <p class="sub">Distribuye tu capital: revisas cuánto tienes disponible y ves el porcentaje y el valor que le toca a cada activo.</p>
       <ul>
         <li>Distribución por porcentajes según las medias móviles</li>
@@ -199,9 +206,9 @@ footer .disc{max-width:760px;margin:0 auto 12px}
       <div class="trybox"><h4>Tu capital, con plan</h4><p>Escríbeme y te muestro cómo quedaría tu distribución.</p><a class="wcta" href="https://wa.me/"><svg viewBox="0 0 24 24" width="21" height="21" fill="#fff" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> Escribe ya</a></div>
     </div>
 
-    <div class="app">
+    <div class="app" id="app-roi">
       <p class="label">Tu resultado real</p>
-      <h2>myRealRoi</h2>
+      <div class="apphead"><span class="roiic">%</span><h2>myRealRoi</h2></div>
       <p class="sub">Tu broker suma tus depósitos como si fueran ganancia y el porcentaje se ve bonito… pero no es el real. myRealRoi te muestra el rendimiento verdadero de tus inversiones.</p>
       <ul>
         <li>Sube la captura de tu pantalla de Balance y listo</li>
