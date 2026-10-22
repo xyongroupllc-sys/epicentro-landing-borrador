@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Herramientas — Epicentro Financiero</title>
+<meta name="description" content="El sistema de herramientas de Epicentro Financiero para la bolsa de Nueva York: crea tu portafolio, monitorea el mercado, distribuye tu capital y mira tu rendimiento real.">
+<style>
+:root{
+  --navy:#0b1a33; --navy2:#0e2142; --ink:#0c1730; --card:rgba(18,41,77,.48); --card2:rgba(13,32,64,.54);
+  --turq:#0891b2; --turq-l:#2fd6cb; --gold:#e9b949; --wa:#25d366; --wa-d:#1eb857;
+  --txt:#dce8fa; --mut:#a9c0e2; --line:#27436e; --radius:18px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;background:#081426}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:transparent;color:var(--txt);line-height:1.55}
+.bgfx{position:fixed;inset:0;z-index:0;overflow:hidden;background:linear-gradient(180deg,rgba(5,14,28,.50),rgba(5,14,28,.58)),url('img/builder-bg.jpg') center/cover no-repeat}
+.bgfx .glow{position:absolute;border-radius:50%;filter:blur(10px);will-change:transform}
+.bgfx .sky{position:absolute;left:0;right:0;bottom:0;height:170px;pointer-events:none;opacity:.85}
+@media (max-width:640px){.bgfx .sky{height:105px;opacity:.5}}
+.bgfx .sky svg{width:100%;height:100%;display:block;filter:blur(1.6px)}
+.bgfx .stars{position:absolute;inset:-3%;width:106%;height:106%;animation:starsdrift 90s ease-in-out infinite alternate;will-change:transform}
+@keyframes starsdrift{from{transform:translate(0,0)}to{transform:translate(-1.2%,1.6%)}}
+.bgfx .g1{width:85vmax;height:85vmax;left:-30vmax;top:-35vmax;background:radial-gradient(circle,rgba(47,214,203,.20) 0%,rgba(47,214,203,0) 62%);animation:drift1 34s ease-in-out infinite alternate}
+.bgfx .g2{width:70vmax;height:70vmax;right:-25vmax;top:22vh;background:radial-gradient(circle,rgba(233,185,73,.14) 0%,rgba(233,185,73,0) 62%);animation:drift2 42s ease-in-out infinite alternate}
+.bgfx .g3{width:90vmax;height:90vmax;left:-20vmax;bottom:-45vmax;background:radial-gradient(circle,rgba(8,145,178,.17) 0%,rgba(8,145,178,0) 62%);animation:drift1 48s ease-in-out infinite alternate-reverse}
+@keyframes drift1{from{transform:translate(0,0) scale(1)}to{transform:translate(6vmax,4vmax) scale(1.12)}}
+@keyframes drift2{from{transform:translate(0,0) scale(1.05)}to{transform:translate(-5vmax,6vmax) scale(.95)}}
+@media (prefers-reduced-motion:reduce){.bgfx .glow,.bgfx .stars{animation:none}}
+body>*:not(.bgfx){position:relative;z-index:1}
+.icard,.step,.bene,.app,.tcard,.faq details,.trybox,.pcard{-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+section{padding:64px 0}
+.alt{background:transparent}
+h1,h2{color:#fff;line-height:1.15;letter-spacing:-.02em}
+h2{font-size:clamp(26px,4.5vw,40px);margin-bottom:12px}
+.sub{color:var(--mut);font-size:clamp(15px,2.4vw,18px);max-width:640px}
+.label{color:var(--turq-l);font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px}
+.wcta{display:inline-flex;align-items:center;gap:10px;background:var(--wa);color:#fff;font-weight:800;font-size:17px;padding:14px 28px;border-radius:999px;text-decoration:none;box-shadow:0 8px 22px rgba(37,211,102,.35);margin-top:22px}
+.wcta svg{flex:none}
+.wcta:active{transform:scale(.98);background:var(--wa-d)}
+.goldbtn{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(180deg,#f7cf6a,#e9b949);color:#231a04;font-weight:800;font-size:17px;padding:14px 28px;border-radius:999px;text-decoration:none;box-shadow:0 8px 22px rgba(233,185,73,.35);margin-top:16px}
+.goldbtn:active{transform:scale(.98)}
+.micro{color:#8fa8cc;font-size:13px;margin-top:10px}
+.proofbar{background:rgba(8,20,38,.45);color:#dce8fa;text-align:center;font-size:13.5px;padding:10px 16px;border-bottom:1px solid var(--line)}
+.proofbar b{color:var(--turq-l)}
+.hero{padding:56px 0 72px;text-align:center}
+.hero h1{font-size:clamp(30px,6vw,52px);max-width:820px;margin:0 auto}
+.hero h1 .t{color:var(--turq-l)}
+.hero .sub{margin:16px auto 0}
+.hero .badge{display:inline-block;border:1px solid rgba(47,214,203,.5);color:var(--turq-l);border-radius:999px;padding:6px 14px;font-size:13px;margin-bottom:20px}
+.phone{width:290px;max-width:84vw;margin:38px auto 0;background:#0a1428;border:3px solid #27436e;border-radius:36px;padding:16px 14px 20px;text-align:left;box-shadow:0 30px 60px rgba(0,0,0,.45)}
+.phone .notch{width:90px;height:6px;border-radius:3px;background:#27436e;margin:0 auto 14px}
+.pcard{background:rgba(18,41,77,.55);border-radius:14px;padding:12px 14px;margin-bottom:10px}
+.pcard h4{color:#fff;font-size:13px;letter-spacing:.06em;margin-bottom:8px}
+.pcard h4 span{color:var(--turq-l)}
+.prow{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-top:1px solid rgba(255,255,255,.08);font-size:13.5px;color:#dce8fa}
+.prow:first-of-type{border-top:none}
+.roi{display:flex;justify-content:space-between;font-size:13.5px;padding:5px 0;color:#dce8fa}
+.roi b{font-size:16px}
+.roi .fake{color:#ff9c9c;text-decoration:line-through}
+.roi .real{color:#3ddc97}
+.grid{display:grid;gap:14px;margin-top:30px}
+.g6{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.icard{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px 16px;text-align:center}
+.icard .ic{font-size:30px;display:block;margin-bottom:8px}
+.icard p{font-weight:600;color:#fff;font-size:15px}
+.steps{display:grid;gap:14px;margin-top:30px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.step{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px 20px}
+.step .n{color:var(--turq-l);font-weight:800;font-size:13px;letter-spacing:.14em}
+.step h3{color:#fff;font-size:19px;margin:8px 0 6px}
+.step p{font-size:14px;color:var(--mut)}
+.bene{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px 20px}
+.bene h3{color:#fff;font-size:18px;margin-bottom:6px}
+.bene p{color:var(--mut);font-size:14.5px}
+.app{background:var(--card2);border:1px solid var(--line);border-radius:24px;padding:34px 28px;margin-top:26px}
+.app h2{margin-bottom:8px}
+.app ul{list-style:none;margin-top:16px}
+.app li{padding:9px 0 9px 30px;position:relative;border-top:1px solid var(--line);font-size:15.5px;color:var(--txt)}
+.app li:first-child{border-top:none}
+.app li::before{content:"✓";position:absolute;left:2px;color:var(--turq-l);font-weight:800}
+.trybox{background:rgba(11,26,51,.58);border:1px solid var(--line);border-radius:14px;padding:18px;margin-top:20px}
+.trybox h4{color:#fff;font-size:16px;margin-bottom:4px}
+.trybox p{color:var(--mut);font-size:14px}
+.bignum{text-align:center;padding:64px 0 10px}
+.bignum .num{font-size:clamp(30px,6vw,50px);font-weight:800;color:#fff;line-height:1.2}
+.bignum .num span{color:var(--turq-l)}
+.tcard{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px}
+.tcard h3{color:#fff;font-size:16.5px;margin-bottom:8px}
+.tcard p{color:var(--mut);font-size:14.5px;font-style:italic}
+.tcard .who{margin-top:10px;font-size:12.5px;color:var(--turq-l);font-weight:700;font-style:normal;letter-spacing:.05em}
+.faq details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin-top:10px}
+.faq summary{font-weight:700;color:#fff;cursor:pointer;font-size:15.5px}
+.faq details p{color:var(--mut);font-size:14.5px;margin-top:8px}
+.faq h3{color:#fff;margin:30px 0 4px;font-size:20px}
+.plogo{width:80%;display:block;margin:12px auto 2px}
+.ptext{color:#fff;text-align:center;font-size:16.5px;line-height:1.45;padding:10px 12px 16px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:20px 14px;max-width:840px;margin:36px auto 0}
+.tile{text-decoration:none;text-align:center;display:block}
+.tile img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:26px;display:block;box-shadow:0 16px 34px rgba(0,0,0,.5);border:1px solid var(--line)}
+.tile .roiic{display:grid;place-items:center;aspect-ratio:1;background:linear-gradient(145deg,#155eef,#7048e8);border-radius:26px;font-size:64px;font-weight:800;color:#fff;box-shadow:0 16px 34px rgba(0,0,0,.5);border:1px solid var(--line)}
+.tile .lbl{display:block;margin-top:10px;font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#c7d7f2}
+.apphead{display:flex;align-items:center;gap:16px}
+.apphead img{width:58px;height:58px;border-radius:14px;object-fit:cover;border:1px solid var(--line);flex:none}
+.apphead .roiic{width:58px;height:58px;border-radius:14px;background:linear-gradient(145deg,#155eef,#7048e8);display:grid;place-items:center;font-size:26px;font-weight:800;color:#fff;border:1px solid var(--line);flex:none}
+.apphead h2{margin-bottom:0}
+.closing{text-align:center}
+.closing .slogan{color:var(--turq-l);font-weight:700;font-size:clamp(17px,3vw,21px);margin-top:8px}
+footer{background:rgba(8,20,38,.45);color:#8fa8cc;font-size:12.5px;text-align:center;padding:26px 20px 40px;border-top:1px solid var(--line)}
+footer .disc{max-width:760px;margin:0 auto 12px}
+</style>
+</head>
+<body>
+
+<div class="bgfx" aria-hidden="true"></div>
+
+<div class="proofbar">Herramientas en producción · Usadas por la comunidad de la <b>Encerrona Financiera</b> · Pagos seguros con <b>Stripe</b> · <a href="index.html" style="color:#2fd6cb;text-decoration:none;font-weight:700">← Volver al inicio</a></div>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="badge">Epicentro Financiero · by Lenin Cuenca</span>
+    <h1>Qué comprar, <span class="t">cuándo</span> comprarlo y <span class="t">cuánto</span> invertir. Sin adivinar.</h1>
+    <p class="sub">Un sistema de herramientas para crear tu portafolio y su distribución, monitorear el mercado, distribuir tu capital y ver el rendimiento real de tus inversiones.</p>
+    <a class="wcta" href="https://wa.me/15094124047"><svg viewBox="0 0 24 24" width="21" height="21" fill="#fff" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> Escribe ya</a>
+    <p class="micro">Te atiendo yo mismo por WhatsApp. Primero vemos qué necesitas y luego la herramienta correcta.</p>
+    <div class="phone">
+      <div class="notch"></div>
+      <img class="plogo" src="img/epicentro.png" alt="Epicentro Financiero by Lenin Cuenca">
+      <p class="ptext">¿Quieres invertir con un sistema?<br>Pásame tu lista de acciones y tu capital.</p>
+    </div>
+    <div class="tiles">
+      <a class="tile" href="#app-builder"><img src="img/builder.jpg" alt="Portafolios Builder"><span class="lbl">Portafolios Builder</span></a>
+      <a class="tile" href="#app-scanner"><img src="img/scanner.jpg" alt="LC Market Scanner"><span class="lbl">LC Market Scanner</span></a>
+      <a class="tile" href="#app-planner"><img src="img/planner.jpg" alt="Capital Planner Starter"><span class="lbl">Capital Planner Starter</span></a>
+      <a class="tile" href="#app-roi"><img src="img/roi.jpg" alt="myRealRoi"><span class="lbl">myRealRoi</span></a>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <p class="label">Lo que tú traes</p>
+    <h2>Funciona con tus datos, no con ejemplos de otros</h2>
+    <p class="sub">Tú pones tu información y cada herramienta trabaja sobre ella. Esto es lo único que necesitas:</p>
+    <div class="grid g6">
+      <div class="icard"><span class="ic">📋</span><p>Tu lista de acciones y ETFs</p></div>
+      <div class="icard"><span class="ic">💵</span><p>Tu capital disponible</p></div>
+      <div class="icard"><span class="ic">📸</span><p>La captura de tu Balance</p></div>
+      <div class="icard"><span class="ic">📄</span><p>Tus estados de cuenta</p></div>
+      <div class="icard"><span class="ic">💼</span><p>Tu portafolio actual</p></div>
+      <div class="icard"><span class="ic">🎯</span><p>Tus metas</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <p class="label">El método</p>
+    <h2>Cuatro pasos, siempre en el mismo orden</h2>
+    <p class="sub">Nada de saltar de una corazonada a otra. El sistema ya tiene el orden pensado:</p>
+    <div class="steps">
+      <div class="step"><span class="n">PASO 01</span><h3>Crea tu perfil y tu portafolio</h3><p>Portafolios Builder crea tu perfil, un posible portafolio y su distribución.</p></div>
+      <div class="step"><span class="n">PASO 02</span><h3>Monitorea el mercado</h3><p>LC Market Scanner monitorea tus acciones y ETFs y te muestra el momento en un color.</p></div>
+      <div class="step"><span class="n">PASO 03</span><h3>Distribuye tu capital</h3><p>Capital Planner Starter distribuye tu capital entre tus activos, con porcentajes claros.</p></div>
+      <div class="step"><span class="n">PASO 04</span><h3>Mira tu rendimiento real</h3><p>myRealRoi te muestra el rendimiento de tus inversiones, sin maquillaje.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="label">Beneficios</p>
+    <h2>Todo lo que necesitas para decidir tranquilo</h2>
+    <div class="grid g3">
+      <div class="bene"><h3>De horas de hojas sueltas a minutos</h3><p>El monitoreo de tu lista que antes te tomaba la tarde queda en una sola pantalla.</p></div>
+      <div class="bene"><h3>Tu lista monitoreada, en un color</h3><p>Favorable, Interesante, A considerar o No favorable. Claro, sin perseguir precios.</p></div>
+      <div class="bene"><h3>Tu rendimiento REAL, a la vista</h3><p>myRealRoi te muestra tu rendimiento sin contar tus propios depósitos como si fueran ganancia.</p></div>
+      <div class="bene"><h3>Cada dólar con destino</h3><p>Tu capital distribuido por porcentajes claros entre tus activos.</p></div>
+      <div class="bene"><h3>Todo en español, explicado simple</h3><p>Sin jerga de Wall Street. Como se lo explicarías a un amigo.</p></div>
+    </div>
+    <a class="wcta" href="https://wa.me/15094124047"><svg viewBox="0 0 24 24" width="21" height="21" fill="#fff" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> Escribe ya</a>
+  </div>
+</section>
+
+<section class="alt" id="apps">
+  <div class="wrap">
+    <p class="label">Las herramientas</p>
+    <h2>Una para cada decisión</h2>
+
+    <div class="app" id="app-builder">
+      <p class="label">Paso 1 · En qué invertir</p>
+      <div class="apphead"><img src="img/builder.jpg" alt="Logo Portafolios Builder"><h2>Portafolios Builder</h2></div>
+      <p class="sub">Crea tu perfil de inversionista y arma un posible portafolio con su distribución, según tu meta.</p>
+      <ul>
+        <li>Perfil según tu meta y tu tolerancia al riesgo</li>
+        <li>Un posible portafolio con su distribución en ETFs</li>
+        <li>Reportes claros que puedes guardar y compartir</li>
+      </ul>
+      <div class="trybox"><h4>¿Estás listo para comenzar a usar esta herramienta?</h4><p>Realiza tu pago desde aquí y entra directo a la herramienta.</p><a class="goldbtn" href="https://portafoliosbuilder.epicentrofinanciero.net">Entra aquí</a></div>
+    </div>
+
+    <div class="app" id="app-scanner">
+      <p class="label">Paso 2 · Cuándo invertir</p>
+      <div class="apphead"><img src="img/scanner.jpg" alt="Logo LC Market Scanner"><h2>LC Market Scanner</h2></div>
+      <p class="sub">Monitorea tus acciones y ETFs con la estrategia DCA y te indica con colores en qué momento se encuentra tu activo para invertir.</p>
+      <ul>
+        <li>🟢 Favorable: excelente momento para asignar capital</li>
+        <li>🔵 Interesante: condiciones adecuadas para comprar</li>
+        <li>🟡 A considerar: procede con cautela</li>
+        <li>🔴 No favorable: espera mejores condiciones</li>
+      </ul>
+      <div class="trybox"><h4>¿Estás listo para comenzar a usar esta herramienta?</h4><p>Realiza tu pago desde aquí y entra directo a la herramienta.</p><a class="goldbtn" href="https://lcmarketscanner.epicentrofinanciero.net">Entra aquí</a></div>
+    </div>
+
+    <div class="app" id="app-planner">
+      <p class="label">Paso 3 · Cuánto invertir</p>
+      <div class="apphead"><img src="img/planner.jpg" alt="Logo Capital Planner"><h2>Capital Planner Starter</h2></div>
+      <p class="sub">Distribuye tu capital: revisas cuánto tienes disponible y ves el porcentaje y el valor que le toca a cada activo.</p>
+      <ul>
+        <li>Distribución según tu estrategia</li>
+        <li>Plan por semana, quincena o mes, a tu ritmo</li>
+        <li>Guardado automático de tus portafolios</li>
+      </ul>
+      <div class="trybox"><h4>¿Estás listo para comenzar a usar esta herramienta?</h4><p>Realiza tu pago desde aquí y entra directo a la herramienta.</p><a class="goldbtn" href="https://capital-planner.web.app/">Entra aquí</a></div>
+    </div>
+
+    <div class="app" id="app-roi">
+      <p class="label">Tu resultado real</p>
+      <div class="apphead"><img src="img/roi.jpg" alt="Logo myRealRoi"><h2>myRealRoi</h2></div>
+      <p class="sub">Tu broker suma tus depósitos como si fueran ganancia y el porcentaje se ve bonito… pero no es el real. myRealRoi te muestra el rendimiento verdadero de tus inversiones.</p>
+      <ul>
+        <li>Sube la captura de tu pantalla de Balance y listo</li>
+        <li>También mes a mes, desde tus estados de cuenta</li>
+        <li>Pago único, sin suscripción</li>
+      </ul>
+      <div class="trybox"><h4>¿Estás listo para comenzar a usar esta herramienta?</h4><p>Realiza tu pago desde aquí y entra directo a la herramienta.</p><a class="goldbtn" href="https://myrealroi.epicentrofinanciero.net">Entra aquí</a></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="bignum">
+      <p class="label">Prueba social</p>
+      <p class="num">Personas reales, <span>resultados reales</span></p>
+      <p class="sub" style="margin:0 auto">Usuarios de la Encerrona Financiera y compradores de las herramientas cuentan lo mismo: por fin entienden sus números.</p>
+    </div>
+    <div class="grid g3">
+      <div class="tcard"><h3>“Mi broker decía +20%. Mi real era otro.”</h3><p>“Con myRealRoi vi mi rendimiento verdadero por primera vez. Nada que ver con el número bonito de la app.”</p><p class="who">USUARIO DE MYREALROI · TESTIMONIO DE EJEMPLO</p></div>
+      <div class="tcard"><h3>Del Excel eterno a 10 minutos</h3><p>“Antes pasaba la tarde entera en hojas de cálculo. Ahora mi lista queda monitoreada en minutos.”</p><p class="who">USUARIO DEL SCANNER · TESTIMONIO DE EJEMPLO</p></div>
+      <div class="tcard"><h3>Por fin sé cuánto ponerle a cada cosa</h3><p>“La distribución de capital me quitó el ‘¿y ahora cuánto compro?’ de la cabeza. Todo con porcentaje claro.”</p><p class="who">USUARIO DE CAPITAL PLANNER · TESTIMONIO DE EJEMPLO</p></div>
+      <div class="tcard"><h3>En español y sin palabras raras</h3><p>“Es la primera herramienta que entiendo completa. Nada de jerga, todo explicado como para un amigo.”</p><p class="who">PARTICIPANTE DE LA ENCERRONA · TESTIMONIO DE EJEMPLO</p></div>
+      <div class="tcard"><h3>Los colores no dejan mentir</h3><p>“Si está en rojo, espero. Esa sola regla me ha ahorrado varias compras por impulso.”</p><p class="who">USUARIO DEL SCANNER · TESTIMONIO DE EJEMPLO</p></div>
+      <div class="tcard"><h3>Soporte de verdad, por WhatsApp</h3><p>“Escribí con una duda un domingo y me respondieron con la explicación paso a paso.”</p><p class="who">COMPRADOR DE LAS HERRAMIENTAS · TESTIMONIO DE EJEMPLO</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt faq">
+  <div class="wrap">
+    <p class="label">Preguntas frecuentes</p>
+    <h2>¿Todavía tienes preguntas?</h2>
+
+    <h3>Si estás empezando</h3>
+    <details><summary>¿Necesito experiencia invirtiendo?</summary><p>No. Las herramientas están explicadas en español simple y el orden ya viene pensado: qué, cuándo y cuánto. Tú sigues los pasos.</p></details>
+    <details><summary>¿Necesito mucho capital para empezar?</summary><p>No. La distribución de capital se adapta a lo que tengas disponible, sea por semana, quincena o mes.</p></details>
+    <details><summary>¿Tengo que comprar las cuatro herramientas?</summary><p>No. Cada una resuelve una parte y se puede usar por separado. El sistema completo es para quien quiere el proceso entero.</p></details>
+
+    <h3>Si ya inviertes con tu broker</h3>
+    <details><summary>¿En qué se diferencia myRealRoi del porcentaje que muestra mi broker?</summary><p>Tu broker mezcla tus depósitos con tu ganancia y el porcentaje se infla. myRealRoi te muestra tu rendimiento real: solo lo que ganaron o perdieron tus inversiones, sin contar el dinero que tú mismo metiste.</p></details>
+    <details><summary>¿Tengo que cambiar de broker?</summary><p>No. Las herramientas trabajan con la información de tu broker actual: tus listas, tus capturas y tus estados de cuenta.</p></details>
+    <details><summary>¿Mis datos están seguros?</summary><p>Tus datos son tuyos. myRealRoi funciona con la captura o los datos que tú decides subir, y nada se comparte con terceros.</p></details>
+
+    <h3>Si ya tienes experiencia</h3>
+    <details><summary>¿Cómo funciona LC Market Scanner?</summary><p>Trabaja con la estrategia DCA (costo promedio): monitorea tu lista y te indica con colores en qué momento se encuentra cada activo para invertir. Tú ves el color y decides; el detalle interno de la estrategia forma parte del sistema.</p></details>
+    <details><summary>¿Cómo se paga?</summary><p>Con tarjeta vía Stripe. myRealRoi es pago único; las demás herramientas tienen planes mensuales, trimestrales o anuales según la app.</p></details>
+  </div>
+</section>
+
+<section class="closing" id="empezar">
+  <div class="wrap">
+    <h2>Simplifica tu análisis. Optimiza tus decisiones. Maximiza tu tiempo.</h2>
+    <p class="slogan">Ese es el sistema. El primer paso es una conversación.</p>
+    <a class="wcta" href="https://wa.me/15094124047"><svg viewBox="0 0 24 24" width="21" height="21" fill="#fff" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> Escribe ya</a>
+    <p class="micro">Cuéntame qué quieres lograr y te digo qué herramienta te conviene. Sin presión y sin venderte lo que no necesitas.</p>
+  </div>
+</section>
+
+<footer>
+  <p class="disc">Contenido únicamente educativo. No es recomendación de inversión ni asesoría financiera. Invertir en bolsa conlleva riesgo, incluida la posible pérdida del capital. Los resultados pasados no garantizan resultados futuros.</p>
+  <p>© Epicentro Financiero · by Lenin Cuenca · Tri-Cities, Washington · <a href="index.html" style="color:#2fd6cb;text-decoration:none">Volver al inicio</a></p>
+</footer>
+
+</body>
+</html>
