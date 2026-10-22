@@ -7,23 +7,19 @@
 <meta name="description" content="El sistema de herramientas de Epicentro Financiero para la bolsa de Nueva York: crea tu portafolio, monitorea el mercado, distribuye tu capital y mira tu rendimiento real.">
 <style>
 :root{
-  --navy:#0b1a33; --navy2:#0e2142; --ink:#0c1730; --card:rgba(18,41,77,.48); --card2:rgba(13,32,64,.54);
+  --navy:#0b1a33; --navy2:#0e2142; --ink:#0c1730; --card:rgba(16,38,74,.50); --card2:rgba(16,38,74,.50);
   --turq:#0891b2; --turq-l:#2fd6cb; --gold:#e9b949; --wa:#25d366; --wa-d:#1eb857;
   --txt:#dce8fa; --mut:#a9c0e2; --line:#27436e; --radius:18px;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;background:#081426}
 body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:transparent;color:var(--txt);line-height:1.55}
-.bgfx{position:fixed;inset:0;z-index:0;overflow:hidden;background:linear-gradient(180deg,rgba(5,14,28,.50),rgba(5,14,28,.58)),url('img/builder-bg.jpg') center/cover no-repeat}
-.bgfx .glow{position:absolute;border-radius:50%;filter:blur(10px);will-change:transform}
+.bgfx{position:fixed;inset:0;z-index:0;overflow:hidden;background:linear-gradient(180deg,rgba(5,14,28,.55),rgba(5,14,28,.55)),url('img/builder-bg.jpg') center/cover no-repeat}
 .bgfx .sky{position:absolute;left:0;right:0;bottom:0;height:170px;pointer-events:none;opacity:.85}
 @media (max-width:640px){.bgfx .sky{height:105px;opacity:.5}}
 .bgfx .sky svg{width:100%;height:100%;display:block;filter:blur(1.6px)}
 .bgfx .stars{position:absolute;inset:-3%;width:106%;height:106%;animation:starsdrift 90s ease-in-out infinite alternate;will-change:transform}
 @keyframes starsdrift{from{transform:translate(0,0)}to{transform:translate(-1.2%,1.6%)}}
-.bgfx .g1{width:85vmax;height:85vmax;left:-30vmax;top:-35vmax;background:radial-gradient(circle,rgba(47,214,203,.20) 0%,rgba(47,214,203,0) 62%);animation:drift1 34s ease-in-out infinite alternate}
-.bgfx .g2{width:70vmax;height:70vmax;right:-25vmax;top:22vh;background:radial-gradient(circle,rgba(233,185,73,.14) 0%,rgba(233,185,73,0) 62%);animation:drift2 42s ease-in-out infinite alternate}
-.bgfx .g3{width:90vmax;height:90vmax;left:-20vmax;bottom:-45vmax;background:radial-gradient(circle,rgba(8,145,178,.17) 0%,rgba(8,145,178,0) 62%);animation:drift1 48s ease-in-out infinite alternate-reverse}
 @keyframes drift1{from{transform:translate(0,0) scale(1)}to{transform:translate(6vmax,4vmax) scale(1.12)}}
 @keyframes drift2{from{transform:translate(0,0) scale(1.05)}to{transform:translate(-5vmax,6vmax) scale(.95)}}
 @media (prefers-reduced-motion:reduce){.bgfx .glow,.bgfx .stars{animation:none}}
@@ -42,7 +38,7 @@ h2{font-size:clamp(26px,4.5vw,40px);margin-bottom:12px}
 .goldbtn{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(180deg,#f7cf6a,#e9b949);color:#231a04;font-weight:800;font-size:17px;padding:14px 28px;border-radius:999px;text-decoration:none;box-shadow:0 8px 22px rgba(233,185,73,.35);margin-top:16px}
 .goldbtn:active{transform:scale(.98)}
 .micro{color:#8fa8cc;font-size:13px;margin-top:10px}
-.proofbar{background:rgba(8,20,38,.45);color:#dce8fa;text-align:center;font-size:13.5px;padding:10px 16px;border-bottom:1px solid var(--line)}
+.proofbar{background:transparent;color:#dce8fa;text-align:center;font-size:13.5px;padding:10px 16px;border-bottom:1px solid var(--line)}
 .proofbar b{color:var(--turq-l)}
 .hero{padding:56px 0 72px;text-align:center}
 .hero h1{font-size:clamp(30px,6vw,52px);max-width:820px;margin:0 auto}
@@ -51,7 +47,7 @@ h2{font-size:clamp(26px,4.5vw,40px);margin-bottom:12px}
 .hero .badge{display:inline-block;border:1px solid rgba(47,214,203,.5);color:var(--turq-l);border-radius:999px;padding:6px 14px;font-size:13px;margin-bottom:20px}
 .phone{width:290px;max-width:84vw;margin:38px auto 0;background:#0a1428;border:3px solid #27436e;border-radius:36px;padding:16px 14px 20px;text-align:left;box-shadow:0 30px 60px rgba(0,0,0,.45)}
 .phone .notch{width:90px;height:6px;border-radius:3px;background:#27436e;margin:0 auto 14px}
-.pcard{background:rgba(18,41,77,.55);border-radius:14px;padding:12px 14px;margin-bottom:10px}
+.pcard{background:var(--card);border-radius:14px;padding:12px 14px;margin-bottom:10px}
 .pcard h4{color:#fff;font-size:13px;letter-spacing:.06em;margin-bottom:8px}
 .pcard h4 span{color:var(--turq-l)}
 .prow{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-top:1px solid rgba(255,255,255,.08);font-size:13.5px;color:#dce8fa}
@@ -80,7 +76,7 @@ h2{font-size:clamp(26px,4.5vw,40px);margin-bottom:12px}
 .app li{padding:9px 0 9px 30px;position:relative;border-top:1px solid var(--line);font-size:15.5px;color:var(--txt)}
 .app li:first-child{border-top:none}
 .app li::before{content:"✓";position:absolute;left:2px;color:var(--turq-l);font-weight:800}
-.trybox{background:rgba(11,26,51,.58);border:1px solid var(--line);border-radius:14px;padding:18px;margin-top:20px}
+.trybox{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;margin-top:20px}
 .trybox h4{color:#fff;font-size:16px;margin-bottom:4px}
 .trybox p{color:var(--mut);font-size:14px}
 .bignum{text-align:center;padding:64px 0 10px}
@@ -107,7 +103,7 @@ h2{font-size:clamp(26px,4.5vw,40px);margin-bottom:12px}
 .apphead h2{margin-bottom:0}
 .closing{text-align:center}
 .closing .slogan{color:var(--turq-l);font-weight:700;font-size:clamp(17px,3vw,21px);margin-top:8px}
-footer{background:rgba(8,20,38,.45);color:#8fa8cc;font-size:12.5px;text-align:center;padding:26px 20px 40px;border-top:1px solid var(--line)}
+footer{background:transparent;color:#8fa8cc;font-size:12.5px;text-align:center;padding:26px 20px 40px;border-top:1px solid var(--line)}
 footer .disc{max-width:760px;margin:0 auto 12px}
 </style>
 </head>
@@ -120,7 +116,7 @@ footer .disc{max-width:760px;margin:0 auto 12px}
 <header class="hero">
   <div class="wrap">
     <span class="badge">Epicentro Financiero · by Lenin Cuenca</span>
-    <h1>Qué comprar, <span class="t">cuándo</span> comprarlo y <span class="t">cuánto</span> invertir. Sin adivinar.</h1>
+    <h1>En <span class="t">qué</span> invertir, <span class="t">cuándo</span> invertir y <span class="t">cuánto</span> invertir. Sin adivinar.</h1>
     <p class="sub">Un sistema de herramientas para crear tu portafolio y su distribución, monitorear el mercado, distribuir tu capital y ver el rendimiento real de tus inversiones.</p>
     <a class="wcta" href="https://wa.me/15094124047"><svg viewBox="0 0 24 24" width="21" height="21" fill="#fff" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> Escribe ya</a>
     <p class="micro">Te atiendo yo mismo por WhatsApp. Primero vemos qué necesitas y luego la herramienta correcta.</p>
@@ -140,16 +136,16 @@ footer .disc{max-width:760px;margin:0 auto 12px}
 
 <section>
   <div class="wrap">
-    <p class="label">Lo que tú traes</p>
-    <h2>Funciona con tus datos, no con ejemplos de otros</h2>
-    <p class="sub">Tú pones tu información y cada herramienta trabaja sobre ella. Esto es lo único que necesitas:</p>
+    <p class="label">Tus datos</p>
+    <h2>Tú manejas tu información y tus datos</h2>
+    <p class="sub">Nadie más toca tu información. Tú decides qué pones en cada herramienta y para qué se usa: solo para trabajar sobre tus propios números.</p>
     <div class="grid g6">
-      <div class="icard"><span class="ic">📋</span><p>Tu lista de acciones y ETFs</p></div>
-      <div class="icard"><span class="ic">💵</span><p>Tu capital disponible</p></div>
-      <div class="icard"><span class="ic">📸</span><p>La captura de tu Balance</p></div>
-      <div class="icard"><span class="ic">📄</span><p>Tus estados de cuenta</p></div>
-      <div class="icard"><span class="ic">💼</span><p>Tu portafolio actual</p></div>
-      <div class="icard"><span class="ic">🎯</span><p>Tus metas</p></div>
+      <div class="icard"><span class="ic">🔒</span><p>Tu información es solo tuya</p></div>
+      <div class="icard"><span class="ic">🙌</span><p>Tú la cargas y tú la controlas</p></div>
+      <div class="icard"><span class="ic">🚫</span><p>No se vende ni se comparte</p></div>
+      <div class="icard"><span class="ic">🎯</span><p>Se usa solo para tus números</p></div>
+      <div class="icard"><span class="ic">🧭</span><p>Tú decides qué herramienta usar</p></div>
+      <div class="icard"><span class="ic">💬</span><p>Soporte directo conmigo, por WhatsApp</p></div>
     </div>
   </div>
 </section>
@@ -206,7 +202,7 @@ footer .disc{max-width:760px;margin:0 auto 12px}
       <p class="sub">Monitorea tus acciones y ETFs con la estrategia DCA y te indica con colores en qué momento se encuentra tu activo para invertir.</p>
       <ul>
         <li>🟢 Favorable: excelente momento para asignar capital</li>
-        <li>🔵 Interesante: condiciones adecuadas para comprar</li>
+        <li>🔵 Interesante: condiciones adecuadas para invertir</li>
         <li>🟡 A considerar: procede con cautela</li>
         <li>🔴 No favorable: espera mejores condiciones</li>
       </ul>
@@ -249,9 +245,9 @@ footer .disc{max-width:760px;margin:0 auto 12px}
     <div class="grid g3">
       <div class="tcard"><h3>“Mi broker decía +20%. Mi real era otro.”</h3><p>“Con myRealRoi vi mi rendimiento verdadero por primera vez. Nada que ver con el número bonito de la app.”</p><p class="who">USUARIO DE MYREALROI · TESTIMONIO DE EJEMPLO</p></div>
       <div class="tcard"><h3>Del Excel eterno a 10 minutos</h3><p>“Antes pasaba la tarde entera en hojas de cálculo. Ahora mi lista queda monitoreada en minutos.”</p><p class="who">USUARIO DEL SCANNER · TESTIMONIO DE EJEMPLO</p></div>
-      <div class="tcard"><h3>Por fin sé cuánto ponerle a cada cosa</h3><p>“La distribución de capital me quitó el ‘¿y ahora cuánto compro?’ de la cabeza. Todo con porcentaje claro.”</p><p class="who">USUARIO DE CAPITAL PLANNER · TESTIMONIO DE EJEMPLO</p></div>
+      <div class="tcard"><h3>Por fin sé cuánto ponerle a cada cosa</h3><p>“La distribución de capital me quitó el ‘¿y ahora cuánto invierto?’ de la cabeza. Todo con porcentaje claro.”</p><p class="who">USUARIO DE CAPITAL PLANNER · TESTIMONIO DE EJEMPLO</p></div>
       <div class="tcard"><h3>En español y sin palabras raras</h3><p>“Es la primera herramienta que entiendo completa. Nada de jerga, todo explicado como para un amigo.”</p><p class="who">PARTICIPANTE DE LA ENCERRONA · TESTIMONIO DE EJEMPLO</p></div>
-      <div class="tcard"><h3>Los colores no dejan mentir</h3><p>“Si está en rojo, espero. Esa sola regla me ha ahorrado varias compras por impulso.”</p><p class="who">USUARIO DEL SCANNER · TESTIMONIO DE EJEMPLO</p></div>
+      <div class="tcard"><h3>Los colores no dejan mentir</h3><p>“Si está en rojo, espero. Esa sola regla me ha ahorrado más de una decisión por impulso.”</p><p class="who">USUARIO DEL SCANNER · TESTIMONIO DE EJEMPLO</p></div>
       <div class="tcard"><h3>Soporte de verdad, por WhatsApp</h3><p>“Escribí con una duda un domingo y me respondieron con la explicación paso a paso.”</p><p class="who">COMPRADOR DE LAS HERRAMIENTAS · TESTIMONIO DE EJEMPLO</p></div>
     </div>
   </div>
@@ -263,7 +259,7 @@ footer .disc{max-width:760px;margin:0 auto 12px}
     <h2>¿Todavía tienes preguntas?</h2>
 
     <h3>Si estás empezando</h3>
-    <details><summary>¿Necesito experiencia invirtiendo?</summary><p>No. Las herramientas están explicadas en español simple y el orden ya viene pensado: qué, cuándo y cuánto. Tú sigues los pasos.</p></details>
+    <details><summary>¿Necesito experiencia invirtiendo?</summary><p>No. Las herramientas están explicadas en español simple y el orden ya viene pensado: en qué invertir, cuándo invertir y cuánto invertir. Tú sigues los pasos.</p></details>
     <details><summary>¿Necesito mucho capital para empezar?</summary><p>No. La distribución de capital se adapta a lo que tengas disponible, sea por semana, quincena o mes.</p></details>
     <details><summary>¿Tengo que comprar las cuatro herramientas?</summary><p>No. Cada una resuelve una parte y se puede usar por separado. El sistema completo es para quien quiere el proceso entero.</p></details>
 
