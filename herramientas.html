@@ -27,7 +27,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Ar
 @keyframes drift1{from{transform:translate(0,0) scale(1)}to{transform:translate(6vmax,4vmax) scale(1.12)}}
 @keyframes drift2{from{transform:translate(0,0) scale(1.05)}to{transform:translate(-5vmax,6vmax) scale(.95)}}
 @media (prefers-reduced-motion:reduce){.bgfx .glow,.bgfx .stars{animation:none}}
-body>*:not(.bgfx){position:relative;z-index:1}
+body>*:not(.bgfx):not(.ticker){position:relative;z-index:1}
 .icard,.step,.bene,.app,.tcard,.faq details,.trybox,.pcard{-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px)}
 .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
 section{padding:64px 0}
