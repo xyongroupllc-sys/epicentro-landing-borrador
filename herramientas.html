@@ -16,7 +16,7 @@ html{scroll-behavior:smooth;background:#081426}
 body{padding-top:46px}
 body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:transparent;color:var(--txt);line-height:1.55}
 .bgfx{position:fixed;inset:0;z-index:0;overflow:hidden;background:linear-gradient(180deg,rgba(5,14,28,.55),rgba(5,14,28,.55)),url('img/builder-bg.jpg') center/cover no-repeat}
-.ticker{position:fixed;top:0;left:0;right:0;height:46px;z-index:99999;background:#000;border-bottom:1px solid var(--line);overflow:hidden}
+.ticker{position:fixed;top:0;left:0;right:0;height:46px;z-index:99999;background:#000;border-bottom:1px solid var(--line);overflow:hidden;pointer-events:none}
 .ticker .tradingview-widget-container{height:46px}
 
 .bgfx .sky{position:absolute;left:0;right:0;bottom:0;height:170px;pointer-events:none;opacity:.85}
@@ -95,7 +95,10 @@ h2{font-size:clamp(26px,4.5vw,40px);margin-bottom:12px}
 .faq details p{color:var(--mut);font-size:14.5px;margin-top:8px}
 .faq h3{color:#fff;margin:30px 0 4px;font-size:20px}
 .plogo{width:80%;display:block;margin:12px auto 2px;-webkit-mask-image:radial-gradient(ellipse at center,#000 56%,transparent 70%);mask-image:radial-gradient(ellipse at center,#000 56%,transparent 70%)}
-.ptext{color:#fff;text-align:center;font-size:16.5px;line-height:1.45;padding:10px 12px 16px}
+.goldtxt{background:linear-gradient(180deg,#ffe9a8,#e9b949 55%,#c9930a);-webkit-background-clip:text;background-clip:text;color:transparent}
+.phone .byline{color:var(--gold);font-weight:800;letter-spacing:.28em;font-size:11px;text-align:center;margin-top:10px}
+.phone .pname{font-size:32px;line-height:1.05;margin-top:6px;color:#fff;font-weight:800;text-align:center}
+.phone .ptag{margin:8px auto 0;font-size:14px;color:#dce8fa;text-align:center;padding:0 12px 16px}
 .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:20px 14px;max-width:840px;margin:36px auto 0}
 .tile{text-decoration:none;text-align:center;display:block}
 .tile img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:26px;display:block;box-shadow:0 16px 34px rgba(0,0,0,.5);border:1px solid var(--line)}
@@ -150,7 +153,9 @@ footer .disc{max-width:760px;margin:0 auto 12px}
     <div class="phone">
       <div class="notch"></div>
       <img class="plogo" src="img/epicentro.png" alt="Epicentro Financiero by Lenin Cuenca">
-      <p class="ptext">¿Quieres invertir con un sistema?<br>Pásame tu lista de acciones y tu capital.</p>
+      <p class="byline">BY LENIN CUENCA</p>
+      <p class="pname">EPICENTRO<br><span class="goldtxt">FINANCIERO</span></p>
+      <p class="ptag">Donde tus finanzas encuentran su centro</p>
     </div>
     <div class="tiles">
       <a class="tile" href="#app-builder"><img src="img/builder-v8.jpg" alt="Portafolios Builder"><span class="lbl">Portafolios Builder</span></a>
