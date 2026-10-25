@@ -119,6 +119,21 @@ h2{font-size:clamp(26px,4.5vw,40px);margin-bottom:12px}
 .closing .slogan{color:var(--turq-l);font-weight:700;font-size:clamp(17px,3vw,21px);margin-top:8px}
 footer{background:transparent;color:#8fa8cc;font-size:12.5px;text-align:center;padding:26px 20px 40px;border-top:1px solid var(--line)}
 footer .disc{max-width:760px;margin:0 auto 12px}
+
+.sitefoot{border-top:1px solid var(--line);padding:36px 0 12px;margin-top:24px}
+.sitefoot .fgrid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:28px;max-width:1080px;margin:0 auto;padding:0 20px;text-align:left}
+.sitefoot h4{color:#fff;font-size:15px;margin-bottom:12px}
+.sitefoot .brand b{color:#fff;font-size:16px}
+.sitefoot p,.sitefoot a{color:var(--mut);font-size:13.5px;line-height:1.65}
+.sitefoot .fgrid a{display:block;text-decoration:none;margin-bottom:7px}
+.sitefoot .fgrid a:hover{color:var(--turq-l)}
+.sitefoot .wabtn{display:inline-block!important;background:var(--wa);color:#fff!important;font-weight:800;padding:12px 22px;border-radius:10px;margin-top:2px}
+.sitefoot .copy{max-width:1080px;margin:28px auto 0;padding:20px 20px 10px;border-top:1px solid var(--line);text-align:center;color:#8fa8cc;font-size:12.5px;line-height:1.65}
+.sitefoot .copy p{margin-bottom:9px}
+@media(max-width:640px){.sitefoot .fgrid{grid-template-columns:1fr 1fr;gap:22px}}
+
+.brandline{color:var(--gold);font-weight:700;font-size:clamp(18px,3vw,23px);line-height:1.45;max-width:820px;margin:0 auto 14px;text-align:center}
+
 </style>
 </head>
 <body>
@@ -167,12 +182,13 @@ footer .disc{max-width:760px;margin:0 auto 12px}
   <div class="wrap">
     <p class="label">La plataforma</p>
     <h2>¿Qué es Epicentro Financiero?</h2>
+    <p class="brandline">Un ecosistema integral para potenciar tus decisiones financieras con tecnología y claridad.</p>
     <p class="sub" style="max-width:820px">Epicentro Financiero es tu plataforma central. Aquí integro todas las herramientas que estoy desarrollando para ayudarte a analizar el mercado, operar con método y controlar tu portafolio con claridad.</p>
     <p class="sub" style="max-width:820px;margin-top:12px">Cada sistema es independiente, pero todos funcionan bajo un mismo ecosistema diseñado para simplificar tu vida financiera.</p>
   </div>
 </section>
 
-<section>
+<section id="como-funciona">
   <div class="wrap">
     <p class="label">El proceso</p>
     <h2>¿Cómo funciona Epicentro Financiero?</h2>
@@ -208,7 +224,7 @@ footer .disc{max-width:760px;margin:0 auto 12px}
   </div>
 </section>
 
-<section>
+<section id="quien">
   <div class="wrap">
     <p class="label">El creador</p>
     <h2>¿Quién está detrás de Epicentro Financiero?</h2>
@@ -239,9 +255,34 @@ footer .disc{max-width:760px;margin:0 auto 12px}
   </div>
 </section>
 
-<footer>
-  <p class="disc">Contenido únicamente educativo. No es recomendación de inversión ni asesoría financiera. Invertir en bolsa conlleva riesgo, incluida la posible pérdida del capital. Los resultados pasados no garantizan resultados futuros.</p>
-  <p>© Epicentro Financiero · by Lenin Cuenca · Tri-Cities, Washington</p>
+<footer class="sitefoot">
+  <div class="fgrid">
+    <div class="brand">
+      <p><b><span style="color:var(--gold)">&#8599;</span> <a href="index.html" style="color:#fff;text-decoration:none">Epicentro Financiero</a></b></p>
+      <p>Un ecosistema integral para potenciar tus decisiones financieras con tecnología y claridad.</p>
+    </div>
+    <div>
+      <h4>Explorar</h4>
+      <a href="herramientas.html">Herramientas</a>
+      <a href="index.html#como-funciona">Cómo funciona</a>
+      <a href="index.html#quien">Sobre Lenin Cuenca</a>
+    </div>
+    <div>
+      <h4>Legal</h4>
+      <a href="privacidad.html">Política de Privacidad</a>
+      <a href="cookies.html">Política de Cookies</a>
+      <a href="terminos.html">Términos de Servicio</a>
+    </div>
+    <div>
+      <h4>Contacto</h4>
+      <a class="wabtn" href="https://wa.me/15094124047">WhatsApp Directo</a>
+    </div>
+  </div>
+  <div class="copy">
+    <p>Copyright © 2026 – Epicentro Financiero by Lenin Cuenca. Todos los derechos reservados.</p>
+    <p>La inversión en mercados financieros conlleva riesgos. Las herramientas proporcionadas son para fines analíticos y educativos, no constituyen asesoramiento financiero personalizado.</p>
+    <p class="disc">Contenido únicamente educativo. No es recomendación de inversión ni asesoría financiera. Invertir en bolsa conlleva riesgo, incluida la posible pérdida del capital. Los resultados pasados no garantizan resultados futuros.</p>
+  </div>
 </footer>
 
 </body>
