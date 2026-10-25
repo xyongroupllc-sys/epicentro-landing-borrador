@@ -13,9 +13,10 @@
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;background:#081426}
+body{padding-top:46px}
 body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:transparent;color:var(--txt);line-height:1.55}
 .bgfx{position:fixed;inset:0;z-index:0;overflow:hidden;background:linear-gradient(180deg,rgba(5,14,28,.55),rgba(5,14,28,.55)),url('img/builder-bg.jpg') center/cover no-repeat}
-.ticker{background:rgba(5,14,28,.88);border-bottom:1px solid var(--line);position:relative;z-index:5}
+.ticker{position:fixed;top:0;left:0;right:0;height:46px;z-index:99999;background:#000;border-bottom:1px solid var(--line)}
 .ticker .tradingview-widget-container{height:46px}
 
 .bgfx .sky{position:absolute;left:0;right:0;bottom:0;height:170px;pointer-events:none;opacity:.85}
@@ -112,20 +113,20 @@ footer .disc{max-width:760px;margin:0 auto 12px}
 </head>
 <body>
 
-<!-- Marquesina de indices en vivo (TradingView Ticker Tape, mismo widget que la pagina actual) -->
+<!-- Marquesina de indices en vivo (TradingView Ticker Tape, misma configuracion que la pagina actual) -->
 <div class="ticker">
 <div class="tradingview-widget-container">
 <div class="tradingview-widget-container__widget"></div>
 <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
 {
   "symbols": [
-    {"proName": "TVC:NDX", "title": "Nasdaq 100"},
-    {"proName": "SP:SPX", "title": "S&P 500"},
-    {"proName": "TVC:DJI", "title": "Dow Jones"},
-    {"proName": "TVC:RUT", "title": "Russell 2000"},
-    {"proName": "TVC:VIX", "title": "VIX"}
+    {"proName": "OANDA:NAS100USD", "title": "Nasdaq 100"},
+    {"proName": "OANDA:SPX500USD", "title": "S&P 500"},
+    {"proName": "OANDA:US30USD", "title": "Dow Jones"},
+    {"proName": "OANDA:US2000USD", "title": "Russell 2000"},
+    {"proName": "BATS:VIXY", "title": "VIX"}
   ],
-  "showSymbolLogo": true,
+  "showSymbolLogo": false,
   "colorTheme": "dark",
   "isTransparent": true,
   "displayMode": "adaptive",
@@ -134,6 +135,7 @@ footer .disc{max-width:760px;margin:0 auto 12px}
 </script>
 </div>
 </div>
+
 
 <div class="bgfx" aria-hidden="true"></div>
 
