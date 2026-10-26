@@ -1,0 +1,45 @@
+# Epicentro Financiero
+
+> Epicentro Financiero, by Lenin Cuenca, es un ecosistema de herramientas para inversionistas y traders. Donde tus finanzas encuentran su centro.
+
+## Qué es
+
+Epicentro Financiero es una plataforma que integra cuatro herramientas para analizar el mercado, operar con método y controlar un portafolio con claridad. El sistema responde tres preguntas en orden: en qué invertir, cuándo invertir y cuánto invertir. Todo el contenido es educativo y no constituye asesoramiento financiero.
+
+## Herramientas
+
+- [Portafolios Builder](https://portafoliosbuilder.epicentrofinanciero.net): Crea un perfil, un posible portafolio y su distribución. Por créditos.
+- [LC Market Scanner](https://lcmarketscanner.epicentrofinanciero.net): Solo monitorea. Monitoreo con estrategia DCA (costo promedio) que indica con colores el momento del activo. Por suscripción.
+- [Capital Planner Starter](https://capital-planner.epicentrofinanciero.net/): Distribuye el capital según tu estrategia. Por suscripción.
+- [myRealRoi](https://myrealroi.epicentrofinanciero.net): Muestra el rendimiento real de tus inversiones. Pago único de $12.99.
+
+## Cómo funciona
+
+1. Exploras las herramientas.
+2. Aprendizaje claro: solo lo práctico.
+3. Avanzas con control: decisiones con datos.
+
+## Para quién
+
+Principiantes que quieren aprender a invertir desde cero, traders que buscan reglas y método, inversionistas que quieren entender sus números y su portafolio, y usuarios que quieren herramientas prácticas, no teoría complicada.
+
+## Quién está detrás
+
+Lenin Cuenca. Graduado en electrónica y computación, especializado en desarrollo de herramientas tecnológicas con IA y amante de las finanzas e inversiones.
+
+## Contacto
+
+- WhatsApp: +1 (509) 412-4047 — https://wa.me/15094124047
+- Correo: soporte@epicentrofinanciero.net, xyongroupllc@gmail.com
+
+## Páginas
+
+- [Inicio](https://epicentrofinanciero.net/)
+- [Herramientas](https://epicentrofinanciero.net/herramientas.html)
+- [Términos de Servicio](https://epicentrofinanciero.net/terminos.html)
+- [Política de Privacidad](https://epicentrofinanciero.net/politica-privacidad/)
+- [Política de Cookies](https://epicentrofinanciero.net/politica-de-cookies/)
+
+## Nota
+
+Contenido únicamente educativo. No es recomendación de inversión ni asesoría financiera.
