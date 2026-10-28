@@ -30,7 +30,7 @@
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:#081426;color:#dce8fa;min-height:100vh}
 .bgfx{position:fixed;inset:0;background:url(../img/builder-bg.jpg) center/cover no-repeat;z-index:-2}
 .bgfx .blink{position:absolute;inset:0;pointer-events:none;z-index:1}.bgfx .blink i{position:absolute;width:16px;height:16px;margin:-8px 0 0 -8px;border-radius:50%;background:radial-gradient(circle,var(--c) 0%,transparent 70%);filter:blur(1px);animation:blink var(--d) ease-in-out var(--dl) infinite}.bgfx .blink i.ref{width:10px;height:26px;margin:-13px 0 0 -5px;filter:blur(3px);animation-name:blinkref}@keyframes blink{0%,100%{opacity:.25}50%{opacity:1}}@keyframes blinkref{0%,100%{opacity:.10}50%{opacity:.5}}
-/*bg-resp*/@media (min-aspect-ratio:1/1){.bgfx{background-size:contain}.bgfx .blink{left:50%;right:auto;width:100vh;transform:translateX(-50%)}}
+/*bg-resp*/@media (min-aspect-ratio:1/1){.bgfx{background-image:url(../img/fondo-horizontal-hd.jpg);background-size:cover}}
 .bgfx:after{content:'';position:absolute;inset:0;background:rgba(5,10,25,.78)}
 .wrap{max-width:640px;margin:0 auto;padding:22px 18px 40px}
 header{text-align:center;padding:14px 0 6px}
