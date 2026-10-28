@@ -29,6 +29,7 @@
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:#081426;color:#dce8fa;min-height:100vh}
 .bgfx{position:fixed;inset:0;background:url(../img/builder-bg.jpg) center/cover no-repeat;z-index:-2}
+.bgfx .blink{position:absolute;inset:0;pointer-events:none;z-index:1}.bgfx .blink i{position:absolute;width:16px;height:16px;margin:-8px 0 0 -8px;border-radius:50%;background:radial-gradient(circle,var(--c) 0%,transparent 70%);filter:blur(1px);animation:blink var(--d) ease-in-out var(--dl) infinite}.bgfx .blink i.ref{width:10px;height:26px;margin:-13px 0 0 -5px;filter:blur(3px);animation-name:blinkref}@keyframes blink{0%,100%{opacity:.25}50%{opacity:1}}@keyframes blinkref{0%,100%{opacity:.10}50%{opacity:.5}}
 .bgfx:after{content:'';position:absolute;inset:0;background:rgba(5,10,25,.78)}
 .wrap{max-width:640px;margin:0 auto;padding:22px 18px 40px}
 header{text-align:center;padding:14px 0 6px}
@@ -63,7 +64,7 @@ footer a{color:#2dd4bf;text-decoration:none}
 </style>
 </head>
 <body>
-<div class="bgfx"></div>
+<div class="bgfx"><div class="blink" aria-hidden="true"><i style="left:30%;top:28%;--c:#f5c542;--d:3.2s;--dl:0s"></i><i style="left:38%;top:45%;--c:#2dd4bf;--d:4.1s;--dl:0.7s"></i><i style="left:45%;top:38%;--c:#f5c542;--d:2.8s;--dl:1.2s"></i><i style="left:55%;top:30%;--c:#ffffff;--d:3.7s;--dl:0.4s"></i><i style="left:62%;top:42%;--c:#2dd4bf;--d:4.5s;--dl:1.0s"></i><i style="left:68%;top:35%;--c:#f5c542;--d:3.0s;--dl:0.2s"></i><i style="left:35%;top:50%;--c:#f5c542;--d:3.9s;--dl:1.5s"></i><i style="left:70%;top:50%;--c:#ffffff;--d:4.3s;--dl:0.9s"></i><i style="left:50%;top:25%;--c:#2dd4bf;--d:3.4s;--dl:0.6s"></i><i style="left:28%;top:45%;--c:#ffffff;--d:2.9s;--dl:1.8s"></i><i style="left:60%;top:50%;--c:#f5c542;--d:4.0s;--dl:0.3s"></i><i style="left:42%;top:52%;--c:#2dd4bf;--d:3.6s;--dl:1.1s"></i><i class="ref" style="left:30%;top:84%;--c:#f5c542;--d:3.2s;--dl:0s"></i><i class="ref" style="left:38%;top:67%;--c:#2dd4bf;--d:4.1s;--dl:0.7s"></i><i class="ref" style="left:45%;top:74%;--c:#f5c542;--d:2.8s;--dl:1.2s"></i><i class="ref" style="left:55%;top:82%;--c:#ffffff;--d:3.7s;--dl:0.4s"></i><i class="ref" style="left:62%;top:70%;--c:#2dd4bf;--d:4.5s;--dl:1.0s"></i><i class="ref" style="left:68%;top:77%;--c:#f5c542;--d:3.0s;--dl:0.2s"></i><i class="ref" style="left:35%;top:62%;--c:#f5c542;--d:3.9s;--dl:1.5s"></i><i class="ref" style="left:70%;top:62%;--c:#ffffff;--d:4.3s;--dl:0.9s"></i><i class="ref" style="left:50%;top:87%;--c:#2dd4bf;--d:3.4s;--dl:0.6s"></i><i class="ref" style="left:28%;top:67%;--c:#ffffff;--d:2.9s;--dl:1.8s"></i><i class="ref" style="left:60%;top:62%;--c:#f5c542;--d:4.0s;--dl:0.3s"></i><i class="ref" style="left:42%;top:60%;--c:#2dd4bf;--d:3.6s;--dl:1.1s"></i></div></div>
 <div class="wrap">
 <header><div class="mark">EPICENTRO FINANCIERO</div><div class="sub">DONDE TUS FINANZAS ENCUENTRAN SU CENTRO</div></header>
 
