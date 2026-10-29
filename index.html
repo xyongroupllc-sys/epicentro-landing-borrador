@@ -117,6 +117,7 @@ html{scroll-behavior:smooth;background:#081426}
 body{padding-top:46px}
 body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:transparent;color:var(--txt);line-height:1.55}
 .bgfx{position:fixed;inset:0;z-index:0;overflow:hidden;background:linear-gradient(180deg,rgba(5,14,28,.55),rgba(5,14,28,.55)),url('img/fondo-velas-vertical.webp') center/cover no-repeat}
+/*bg-resp*/@media (min-aspect-ratio:1/1){.bgfx{background-image:linear-gradient(180deg,rgba(5,14,28,.55),rgba(5,14,28,.55)),url('img/fondo-velas-horizontal.webp');background-size:auto,cover}}
 .ticker{position:fixed;top:0;left:0;right:0;height:46px;z-index:99999;background:#000;border-bottom:1px solid var(--line);overflow:hidden;pointer-events:none}
 .ticker .tradingview-widget-container{height:46px}
 
