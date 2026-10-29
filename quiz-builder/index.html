@@ -29,6 +29,7 @@
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:#081426;color:#dce8fa;min-height:100vh}
 .bgfx{position:fixed;inset:0;background:url(../img/fondo-velas-vertical.webp) center/cover no-repeat;z-index:-2}
+/*bg-resp*/@media (min-aspect-ratio:1/1){.bgfx{background-image:url(../img/fondo-velas-horizontal.webp);background-size:cover}}
 .bgfx:after{content:'';position:absolute;inset:0;background:rgba(5,10,25,.78)}
 .wrap{max-width:640px;margin:0 auto;padding:22px 18px 40px}
 header{text-align:center;padding:14px 0 6px}
