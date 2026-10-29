@@ -197,9 +197,7 @@
 html{scroll-behavior:smooth;background:#081426}
 body{padding-top:46px}
 body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:transparent;color:var(--txt);line-height:1.55}
-.bgfx{position:fixed;inset:0;z-index:0;overflow:hidden;background:linear-gradient(180deg,rgba(5,14,28,.55),rgba(5,14,28,.55)),url('img/fondo-velas-vertical.jpg') center/cover no-repeat}
-.bgfx .candle{position:absolute;inset:0;pointer-events:none;z-index:1;background:url('img/fondo-velas-vertical.jpg') center/cover no-repeat;opacity:0}.bgfx .candle-verde{-webkit-mask-image:url('img/mascara-velas-vertical-edif-verde.png');mask-image:url('img/mascara-velas-vertical-edif-verde.png');-webkit-mask-size:cover;mask-size:cover;-webkit-mask-position:center;mask-position:center;animation:candlepulse 2.0s ease-in-out infinite alternate}.bgfx .candle-rojo{-webkit-mask-image:url('img/mascara-velas-vertical-edif-rojo.png');mask-image:url('img/mascara-velas-vertical-edif-rojo.png');-webkit-mask-size:cover;mask-size:cover;-webkit-mask-position:center;mask-position:center;animation:candlepulse 2.6s ease-in-out .4s infinite alternate}.bgfx .candle-dorado{-webkit-mask-image:url('img/mascara-velas-vertical-edif-dorado.png');mask-image:url('img/mascara-velas-vertical-edif-dorado.png');-webkit-mask-size:cover;mask-size:cover;-webkit-mask-position:center;mask-position:center;animation:candlepulse 3.2s ease-in-out .8s infinite alternate}.bgfx .candle-agua{-webkit-mask-image:url('img/mascara-velas-vertical-agua.png');mask-image:url('img/mascara-velas-vertical-agua.png');-webkit-mask-size:cover;mask-size:cover;-webkit-mask-position:center;mask-position:center;animation:aguapulse 5.0s ease-in-out .2s infinite alternate}@keyframes candlepulse{from{opacity:0}to{opacity:.9}}@keyframes aguapulse{from{opacity:0}to{opacity:.4}}
-/*bg-resp*/@media (min-aspect-ratio:1/1){.bgfx{background-image:linear-gradient(180deg,rgba(5,14,28,.55),rgba(5,14,28,.55)),url('img/fondo-velas-horizontal.jpg');background-size:auto,cover}.bgfx .candle{background-image:url('img/fondo-velas-horizontal.jpg')}.bgfx .candle-verde{-webkit-mask-image:url('img/mascara-velas-horizontal-edif-verde.png');mask-image:url('img/mascara-velas-horizontal-edif-verde.png')}.bgfx .candle-rojo{-webkit-mask-image:url('img/mascara-velas-horizontal-edif-rojo.png');mask-image:url('img/mascara-velas-horizontal-edif-rojo.png')}.bgfx .candle-dorado{-webkit-mask-image:url('img/mascara-velas-horizontal-edif-dorado.png');mask-image:url('img/mascara-velas-horizontal-edif-dorado.png')}.bgfx .candle-agua{-webkit-mask-image:url('img/mascara-velas-horizontal-agua.png');mask-image:url('img/mascara-velas-horizontal-agua.png')}}
+.bgfx{position:fixed;inset:0;z-index:0;overflow:hidden;background:linear-gradient(180deg,rgba(5,14,28,.55),rgba(5,14,28,.55)),url('img/fondo-velas-vertical.webp') center/cover no-repeat}
 .ticker{position:fixed;top:0;left:0;right:0;height:46px;z-index:99999;background:#000;border-bottom:1px solid var(--line);overflow:hidden;pointer-events:none}
 .ticker .tradingview-widget-container{height:46px}
 
@@ -210,7 +208,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Ar
 @keyframes starsdrift{from{transform:translate(0,0)}to{transform:translate(-1.2%,1.6%)}}
 @keyframes drift1{from{transform:translate(0,0) scale(1)}to{transform:translate(6vmax,4vmax) scale(1.12)}}
 @keyframes drift2{from{transform:translate(0,0) scale(1.05)}to{transform:translate(-5vmax,6vmax) scale(.95)}}
-@media (prefers-reduced-motion:reduce){.bgfx .glow,.bgfx .stars,.bgfx .candle{animation:none}}
 body>*:not(.bgfx):not(.ticker){position:relative;z-index:1}
 .icard,.step,.bene,.app,.tcard,.faq details,.trybox,.pcard{-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px)}
 .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
@@ -340,7 +337,7 @@ footer .disc{max-width:760px;margin:0 auto 12px}
 </div>
 
 
-<div class="bgfx" aria-hidden="true"><div class="candle candle-verde" aria-hidden="true"></div><div class="candle candle-rojo" aria-hidden="true"></div><div class="candle candle-dorado" aria-hidden="true"></div><div class="candle candle-agua" aria-hidden="true"></div></div>
+<div class="bgfx" aria-hidden="true"></div>
 
 <div class="proofbar">Herramientas usadas por la comunidad de la <b>Encerrona Financiera</b> · Pagos seguros con <b>Stripe</b> · <a href="index.html" style="color:#2fd6cb;text-decoration:none;font-weight:700">← Volver al inicio</a></div>
 
@@ -354,7 +351,7 @@ footer .disc{max-width:760px;margin:0 auto 12px}
       <div class="notch"></div>
       <img class="plogo" src="img/epicentro.png" alt="Epicentro Financiero by Lenin Cuenca">
       <p class="byline">BY LENIN CUENCA</p>
-      <p class="pname">EPICENTRO<br><span class="goldtxt">FINANCIERO</span></p>
+      <p class="pname"><span class="goldtxt">EPICENTRO<br>FINANCIERO</span></p>
       <p class="ptag">Donde tus finanzas encuentran su centro</p>
     </div>
     <div class="tiles">
