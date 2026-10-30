@@ -1,6 +1,6 @@
 # Epicentro Financiero
 
-> Epicentro Financiero, by Lenin Cuenca, es un ecosistema de herramientas para inversionistas y traders. Donde tus finanzas encuentran su centro.
+> Epicentro Financiero, by Lenin Cuenca, es un ecosistema de herramientas para inversionistas. Donde tus finanzas encuentran su centro.
 
 ## Qué es
 
@@ -15,17 +15,18 @@ Epicentro Financiero es una plataforma que integra cuatro herramientas para anal
 
 ## Cómo funciona
 
-1. Exploras las herramientas.
-2. Aprendizaje claro: solo lo práctico.
-3. Avanzas con control: decisiones con datos.
+1. Realizas el quiz general: respondes 6 preguntas y descubres cuáles herramientas necesitas (https://epicentrofinanciero.net/quiz-general/).
+2. Exploras las herramientas.
+3. Aprendizaje claro: solo lo práctico.
+4. Avanzas con control: decisiones con datos.
 
 ## Para quién
 
-Principiantes que quieren aprender a invertir desde cero, traders que buscan reglas y método, inversionistas que quieren entender sus números y su portafolio, y usuarios que quieren herramientas prácticas, no teoría complicada.
+Principiantes que quieren aprender a invertir desde cero, inversionistas que quieren entender sus números y su portafolio, y usuarios que quieren herramientas prácticas, no teoría complicada.
 
 ## Quién está detrás
 
-Lenin Cuenca. Graduado en electrónica y computación, especializado en desarrollo de herramientas tecnológicas con IA y amante de las finanzas e inversiones.
+Epicentro Financiero está liderado y creado por Lenin Cuenca, graduado en electrónica y computación, especializado en desarrollo de herramientas tecnológicas con IA y amante de las finanzas e inversiones.
 
 ## Contacto
 
