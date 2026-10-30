@@ -18,7 +18,7 @@ Epicentro Financiero es una plataforma que integra cuatro herramientas para anal
 1. Realizas el quiz general: respondes 6 preguntas y descubres cuáles herramientas necesitas (https://epicentrofinanciero.net/quiz-general/).
 2. Exploras las herramientas.
 3. Aprendizaje claro: solo lo práctico.
-4. Avanzas con control: decisiones con datos.
+4. Avanzas con control: decisiones con datos, no por emociones.
 
 ## Para quién
 
