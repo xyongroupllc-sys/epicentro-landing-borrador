@@ -252,6 +252,7 @@ footer .disc{max-width:760px;margin:0 auto 12px}
 <p><strong>Cookies de personalización:</strong> permiten recordar preferencias del usuario, como el idioma, el tipo de navegador o configuraciones específicas, para ofrecer una experiencia más personalizada.</p>
 <p><strong>Cookies de terceros:</strong> este sitio puede utilizar servicios de terceros, como herramientas de análisis o medición (por ejemplo, Google Analytics), que pueden instalar cookies en el dispositivo del usuario conforme a sus propias políticas de privacidad.</p>
 <p>Epicentro Financiero no controla directamente estas cookies de terceros, por lo que se recomienda revisar las políticas correspondientes de dichos proveedores.</p>
+<p>En concreto, y <strong>solo si aceptas el aviso de cookies</strong>, utilizamos <strong>Google Analytics</strong> (cookies <em>_ga</em> y <em>_ga_*</em>, que permiten distinguir las visitas y saber qué páginas se ven, desde qué país y con qué tipo de dispositivo). Si rechazas el aviso, ninguna de estas cookies se instala y el sitio funciona igual.</p>
 <h3>Finalidad del uso de cookies</h3>
 <p>Las cookies utilizadas en este sitio web tienen como finalidad:</p>
 <ul>
@@ -272,7 +273,8 @@ footer .disc{max-width:760px;margin:0 auto 12px}
 </ul>
 <p>La gestión de cookies depende exclusivamente del navegador utilizado por el usuario.</p>
 <h3>Consentimiento</h3>
-<p>Al acceder por primera vez a Epicentro Financiero, el usuario puede visualizar un aviso de cookies. Al continuar navegando en el sitio, se considera que el usuario acepta el uso de cookies conforme a esta Política de Cookies.</p>
+<p>Al acceder por primera vez a Epicentro Financiero verás un aviso de cookies con dos opciones: <strong>Aceptar</strong> o <strong>Rechazar</strong>. Las cookies de medición y de anuncios solo se instalan si pulsas «Aceptar». Si pulsas «Rechazar» — o si no pulsas nada —, esas cookies no se instalan y el sitio funciona igual. Puedes cambiar tu elección en cualquier momento con este botón:</p>
+<p><button type="button" onclick="efResetConsent()" style="background:transparent;border:2px solid #2dd4bf;color:#2dd4bf;border-radius:999px;padding:10px 22px;font-weight:700;font-size:15px;cursor:pointer">Cambiar mi elección de cookies</button></p>
 <h3>Cambios en la Política de Cookies</h3>
 <p>Epicentro Financiero se reserva el derecho de modificar o actualizar esta Política de Cookies en cualquier momento, con el fin de adaptarla a cambios legislativos o técnicos. Cualquier modificación será publicada en esta misma página.</p>
 <h3>Contacto</h3>
@@ -312,6 +314,50 @@ footer .disc{max-width:760px;margin:0 auto 12px}
     <p class="disc">Contenido únicamente educativo. No es recomendación de inversión ni asesoría financiera. Invertir en bolsa conlleva riesgo, incluida la posible pérdida del capital. Los resultados pasados no garantizan resultados futuros.</p>
   </div>
 </footer>
+
+
+<style>
+#ef-consent{position:fixed;left:14px;right:14px;bottom:14px;max-width:640px;margin:0 auto;background:rgba(8,18,34,.97);border:1px solid rgba(233,185,73,.45);border-radius:16px;padding:18px;z-index:9999;box-shadow:0 14px 40px rgba(0,0,0,.55)}
+#ef-consent p{font-size:14.5px;line-height:1.5;color:#dce8fa}
+#ef-consent a{color:#2dd4bf}
+#ef-consent .row{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+#ef-accept{background:linear-gradient(180deg,#f7cf6a,#e9b949);color:#231a04;font-weight:800;font-size:15px;padding:11px 24px;border-radius:999px;border:0;cursor:pointer}
+#ef-reject{background:transparent;color:#2dd4bf;font-weight:700;font-size:15px;padding:11px 22px;border-radius:999px;border:2px solid #2dd4bf;cursor:pointer}
+</style>
+<div id="ef-consent" hidden>
+<p><strong style="color:#fff">Tu privacidad manda.</strong> Usamos cookies de medición (Google Analytics) solo si aceptas. Sin tu permiso no se instala ninguna. <a href="https://epicentrofinanciero.net/politica-de-cookies/">Política de cookies</a></p>
+<div class="row"><button id="ef-accept" type="button">Aceptar</button><button id="ef-reject" type="button">Rechazar</button></div>
+</div>
+<script>
+(function(){
+  var GA='G-YC7YQ8BN9C', PX='';
+  function loadTrackers(){
+    if(window.__efLoaded) return; window.__efLoaded=true;
+    var s=document.createElement('script'); s.async=true; s.src='https://www.googletagmanager.com/gtag/js?id='+GA; document.head.appendChild(s);
+    window.dataLayer=window.dataLayer||[];
+    function gtag(){dataLayer.push(arguments);} window.gtag=gtag;
+    gtag('js', new Date()); gtag('config', GA);
+    if(PX){
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', PX); fbq('track','PageView');
+    }
+    document.addEventListener('click', function(ev){
+      var a = ev.target && ev.target.closest ? ev.target.closest('a') : null;
+      if(!a || !a.href) return;
+      if(a.href.indexOf('wa.me/')>=0){ gtag('event','click_whatsapp'); if(window.fbq) fbq('track','Contact'); }
+      else if(/(portafoliosbuilder|lcmarketscanner|capital-planner|myrealroi)\.epicentrofinanciero\.net/.test(a.href)){ gtag('event','click_app',{app_name:a.hostname.split('.')[0]}); if(window.fbq) fbq('track','Lead'); }
+    });
+  }
+  var choice=null;
+  try{ choice=localStorage.getItem('ef-consent'); }catch(e){}
+  var bar=document.getElementById('ef-consent');
+  if(choice==='granted'){ loadTrackers(); }
+  else if(choice!=='denied'){ bar.hidden=false; }
+  document.getElementById('ef-accept').addEventListener('click', function(){ try{localStorage.setItem('ef-consent','granted');}catch(e){} bar.hidden=true; loadTrackers(); });
+  document.getElementById('ef-reject').addEventListener('click', function(){ try{localStorage.setItem('ef-consent','denied');}catch(e){} bar.hidden=true; });
+  window.efResetConsent=function(){ try{localStorage.removeItem('ef-consent');}catch(e){} location.reload(); };
+})();
+</script>
 
 </body>
 </html>
