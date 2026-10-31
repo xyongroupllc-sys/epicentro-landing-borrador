@@ -133,5 +133,49 @@ function showResult(){
 }
 function restart(){answers={};idx=0;document.getElementById('result').hidden=true;document.getElementById('intro').hidden=false;window.scrollTo(0,0);}
 </script>
+
+<style>
+#ef-consent{position:fixed;left:14px;right:14px;bottom:14px;max-width:640px;margin:0 auto;background:rgba(8,18,34,.97);border:1px solid rgba(233,185,73,.45);border-radius:16px;padding:18px;z-index:9999;box-shadow:0 14px 40px rgba(0,0,0,.55)}
+#ef-consent p{font-size:14.5px;line-height:1.5;color:#dce8fa}
+#ef-consent a{color:#2dd4bf}
+#ef-consent .row{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+#ef-accept{background:linear-gradient(180deg,#f7cf6a,#e9b949);color:#231a04;font-weight:800;font-size:15px;padding:11px 24px;border-radius:999px;border:0;cursor:pointer}
+#ef-reject{background:transparent;color:#2dd4bf;font-weight:700;font-size:15px;padding:11px 22px;border-radius:999px;border:2px solid #2dd4bf;cursor:pointer}
+</style>
+<div id="ef-consent" hidden>
+<p><strong style="color:#fff">Tu privacidad manda.</strong> Usamos cookies de medición (Google Analytics) solo si aceptas. Sin tu permiso no se instala ninguna. <a href="https://epicentrofinanciero.net/politica-de-cookies/">Política de cookies</a></p>
+<div class="row"><button id="ef-accept" type="button">Aceptar</button><button id="ef-reject" type="button">Rechazar</button></div>
+</div>
+<script>
+(function(){
+  var GA='G-YC7YQ8BN9C', PX='';
+  function loadTrackers(){
+    if(window.__efLoaded) return; window.__efLoaded=true;
+    var s=document.createElement('script'); s.async=true; s.src='https://www.googletagmanager.com/gtag/js?id='+GA; document.head.appendChild(s);
+    window.dataLayer=window.dataLayer||[];
+    function gtag(){dataLayer.push(arguments);} window.gtag=gtag;
+    gtag('js', new Date()); gtag('config', GA);
+    if(PX){
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', PX); fbq('track','PageView');
+    }
+    document.addEventListener('click', function(ev){
+      var a = ev.target && ev.target.closest ? ev.target.closest('a') : null;
+      if(!a || !a.href) return;
+      if(a.href.indexOf('wa.me/')>=0){ gtag('event','click_whatsapp'); if(window.fbq) fbq('track','Contact'); }
+      else if(/(portafoliosbuilder|lcmarketscanner|capital-planner|myrealroi)\.epicentrofinanciero\.net/.test(a.href)){ gtag('event','click_app',{app_name:a.hostname.split('.')[0]}); if(window.fbq) fbq('track','Lead'); }
+    });
+  }
+  var choice=null;
+  try{ choice=localStorage.getItem('ef-consent'); }catch(e){}
+  var bar=document.getElementById('ef-consent');
+  if(choice==='granted'){ loadTrackers(); }
+  else if(choice!=='denied'){ bar.hidden=false; }
+  document.getElementById('ef-accept').addEventListener('click', function(){ try{localStorage.setItem('ef-consent','granted');}catch(e){} bar.hidden=true; loadTrackers(); });
+  document.getElementById('ef-reject').addEventListener('click', function(){ try{localStorage.setItem('ef-consent','denied');}catch(e){} bar.hidden=true; });
+  window.efResetConsent=function(){ try{localStorage.removeItem('ef-consent');}catch(e){} location.reload(); };
+})();
+</script>
+
 </body>
 </html>
